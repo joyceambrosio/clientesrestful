@@ -10,7 +10,7 @@
 	<packaging>jar</packaging>
 
 	<name>clientesrestful</name>
-	<description>Demo project for Spring Boot</description>
+	<description>Clientes RESTFUL Spring BOOT MVC</description>
 
 	<parent>
 		<groupId>org.springframework.boot</groupId>
@@ -25,22 +25,28 @@
 		<java.version>1.8</java.version>
 	</properties>
 
+	<repositories>
+		<repository>
+		    <id>jitpack.io</id>
+		    <url>https://jitpack.io</url>
+		</repository>
+	</repositories>
+
 	<dependencies>
 
 		<!-- Custom dependence -->
 
-		<dependency>
-			<groupId>com.mango</groupId>
-			<artifactId>restnegocio</artifactId>
-			<version>1.0</version>
-		</dependency>
-
+	<dependency>
+	    <groupId>com.github.joyceambrosio</groupId>
+	    <artifactId>clientesnegocio</artifactId>
+	    <version>1.0</version>
+	</dependency>
+	
 		<!-- Maven dependencies -->
 
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-data-jpa</artifactId>
-
 		</dependency>
 
 		<dependency>
@@ -52,7 +58,6 @@
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-devtools</artifactId>
-
 			<scope>runtime</scope>
 		</dependency>
 
@@ -65,21 +70,45 @@
 		<dependency>
 			<groupId>org.postgresql</groupId>
 			<artifactId>postgresql</artifactId>
-			<scope>runtime</scope>
 		</dependency>
-
 		<dependency>
-			<groupId>org.postgresql</groupId>
-			<artifactId>postgresql</artifactId>
+			<groupId>com.heroku.sdk</groupId>
+			<artifactId>heroku-maven-plugin</artifactId>
+			<version>2.0.5</version>
 		</dependency>
-		
+		<!-- https://mvnrepository.com/artifact/com.heroku.sdk/heroku-deploy -->
+		<dependency>
+			<groupId>com.heroku.sdk</groupId>
+			<artifactId>heroku-deploy</artifactId>
+			<version>2.0.5</version>
+		</dependency>
 	</dependencies>
 
 	<build>
 		<plugins>
+
 			<plugin>
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
+			</plugin>
+
+			<plugin>
+				<groupId>com.heroku.sdk</groupId>
+				<artifactId>heroku-maven-plugin</artifactId>
+				<version>2.0.5</version>
+				<configuration>
+					<appName>clientesrestful</appName>
+					<processTypes>
+						<web>java $JAVA_OPTS -cp target/classes:target/dependency/* Main</web>
+					</processTypes>
+				</configuration>
+			</plugin>
+
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<configuration>
+				</configuration>
 			</plugin>
 		</plugins>
 	</build>
