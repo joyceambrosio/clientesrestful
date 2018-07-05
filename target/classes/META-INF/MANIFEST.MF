@@ -1,0 +1,10 @@
+Manifest-Version: 1.0
+Implementation-Title: clientesrestful
+Implementation-Version: 0.0.1-SNAPSHOT
+Built-By: joyce
+Implementation-Vendor-Id: com.mango
+Build-Jdk: 1.8.0_171
+Implementation-URL: https://projects.spring.io/spring-boot/#/spring-bo
+ ot-starter-parent/clientesrestful
+Created-By: Maven Integration for Eclipse
+
